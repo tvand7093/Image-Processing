@@ -4,37 +4,59 @@ using System.IO;
 using Microsoft.ProjectOxford.Vision.Contract;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using System.Threading.Tasks;
 
 namespace ImageProcessing
 {
 	class MainClass
 	{
 		public static void Main (string[] args)
-		{
-			const string key = "84cc0008b9614936ad5a7edfdec501d3";
-			VisionServiceClient client = new VisionServiceClient(key);
+        {
+            ImageReader reader = new ImageReader();
+            ImageCompiler compiler = new ImageCompiler();
 
-			using(var stream = File.OpenRead("../../../main.png"))
-			{
-				var ocrResult = client.RecognizeTextAsync(stream).Result;
+            //build HI console app
+            BuildAndRunHiImage(reader, compiler).Wait();
 
-				foreach (var region in ocrResult.Regions)
-				{
-					foreach(var line in region.Lines)
-					{
-						foreach (var word in line.Words) {
-							Console.Write (word.Text + " ");
-						}
-					}
-				}
-			}
-			Console.Write ("\n");
+            //build Hi from Roslyn and OCR app
+            BuildAndRunHiFromOCRImage(reader, compiler).Wait();
 
-			Console.WriteLine ("Done Processing...");
-			Console.ReadKey();
+            Console.Write("\n");
+            Console.WriteLine("Done Processing...");
+            Console.ReadKey();
+        }
 
-		}
-	}
+        private static async Task BuildAndRunHiImage(ImageReader reader, ImageCompiler compiler)
+        {
+            //process main image.
+            var hiProgram = await reader.GetText("../../../main.png");
+            var compileResult = compiler.Compile(hiProgram, "Hi");
+
+            if (compileResult)
+            {
+                //call the library
+                var running = Process.Start("Hi.exe");
+                running.WaitForExit();
+            }
+        }
+
+        private static async Task BuildAndRunHiFromOCRImage(ImageReader reader, ImageCompiler compiler)
+        {
+            //process main image.
+            var ocrProgram = await reader.GetText("../../../ocr.png");
+            var compileResult = compiler.Compile(ocrProgram, "OCRAndRoslyn");
+
+            if (compileResult)
+            {
+                //call the library
+                var running = Process.Start("OCRAndRoslyn.exe");
+                running.WaitForExit();
+            }
+        }
+    }
 }
 
 

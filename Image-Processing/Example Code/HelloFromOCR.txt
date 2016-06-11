@@ -1,0 +1,8 @@
+﻿
+
+
+using System;
+namespace ImageProcessing { class MainClass { public static void Main (string[] args) { Console.WriteLine("Hello from OCR and Roslyn!");  Console.ReadKey(); } } }
+
+
+
