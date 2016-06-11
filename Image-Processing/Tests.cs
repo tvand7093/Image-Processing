@@ -1,12 +1,6 @@
-﻿using System;
+﻿
 
-namespace ImageProcessing
-{
-	public class Tests
-	{
-		public Tests ()
-		{
-		}
-	}
-}
+
+
+namespace ImageProcessing { class MainClass { public static void Main (string[] args) { System.Console.WriteLine("HI"); } } }
 
