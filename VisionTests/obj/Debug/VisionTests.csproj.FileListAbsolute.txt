@@ -1,9 +1,0 @@
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\bin\Debug\VisionTests.exe.config
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\bin\Debug\VisionTests.exe
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\bin\Debug\VisionTests.pdb
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\bin\Debug\Microsoft.ProjectOxford.Vision.dll
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\bin\Debug\Newtonsoft.Json.dll
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\bin\Debug\Newtonsoft.Json.xml
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\obj\Debug\VisionTests.csprojResolveAssemblyReference.cache
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\obj\Debug\VisionTests.exe
-c:\users\tyler.vanderhoef\documents\visual studio 2015\Projects\VisionTests\VisionTests\obj\Debug\VisionTests.pdb
